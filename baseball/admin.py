@@ -1,3 +1,11 @@
 from django.contrib import admin
+from .models import BaseballStats
 
-# Register your models here.
+
+class BaseballStatsAdmin(admin.ModelAdmin):
+    list_display = ("player", "rank", "hits", "year", "age", "bats")
+    list_filter = ("bats", )
+
+admin.site.register(BaseballStats, BaseballStatsAdmin)
+
+
